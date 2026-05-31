@@ -121,9 +121,11 @@ class _AppEntryState extends State<AppEntry> {
                   const Text('Failed to load profile'),
                   const SizedBox(height: 16),
                   ElevatedButton.icon(
-                    onPressed: () => setState(
-                      () => _profileFuture = ApiService().fetchProfile(),
-                    ),
+                    onPressed: () {
+                      setState(() {
+                        _profileFuture = ApiService().fetchProfile();
+                      });
+                    },
                     icon: const Icon(Icons.refresh_rounded),
                     label: const Text('Retry'),
                   ),
